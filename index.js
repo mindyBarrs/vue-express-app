@@ -23,7 +23,6 @@ app.get('/beers', (req, res) => {
   axios.get(apiURL)
     .then(function (response) {
         res.send(JSON.stringify(response.data));
-        console.log(response);
     })
     .catch(function (error) {
         console.log(error);
@@ -39,6 +38,11 @@ app.get('/search/:query', (req, res) => {
     .catch(function (error) {
         console.log(error);
     });
+});
+
+// POST Beer Rating
+app.post('/ratting:rating', (req, res) => {
+  // POST Beer Rating to a nosql database
 });
 
 app.listen(port, () => {
