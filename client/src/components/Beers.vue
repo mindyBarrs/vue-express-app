@@ -37,7 +37,7 @@
          </div>
 
          <div>
-           <BeerRatting />
+           <BeerRating />
          </div>
         </div>
       </div>
@@ -45,14 +45,14 @@
 </template>
 
 <script>
-import BeerRatting from './BeerRating/BeerRating.vue'
+import BeerRating from './BeerRating/BeerRating.vue'
 
 const API_URL = "http://localhost:4000/";
 
 export default {
   name: 'App',
   components: {
-    BeerRatting,
+    BeerRating,
   },
   data: () => ({
     error: "",
