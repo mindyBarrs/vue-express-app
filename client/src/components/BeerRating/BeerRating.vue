@@ -1,7 +1,7 @@
 <template>
   <div class="rating">
     <ul class="list">
-      <li @click="rate(star)" v-for="star in maxStars" :class="{ 'active': star <= stars }" :key="star.stars" class="star">
+      <li @click="rate(star, beerID)" v-for="star in maxStars" :class="{ 'active': star <= stars }" :key="star.stars" class="star">
         <i :class="star <= stars ? 'fas fa-star' : 'far fa-star'"></i>
       </li>
     </ul>
@@ -12,14 +12,15 @@
 <script>
 export default {
   name: 'Rating',
-  props: ['grade', 'maxStars', 'hasCounter'],
+  props: ['grade', 'maxStars', 'hasCounter', 'beerId'],
   data() {
     return {
-      stars: this.grade
+      stars: this.grade,
+      beerID: this.beerId
     }
   },
   methods: {
-    rate(star) {
+    rate(star, beerID) {
       if (typeof star === 'number' && star <= this.maxStars && star >= 0) {
         this.stars = this.stars === star ? star - 1 : star
       }

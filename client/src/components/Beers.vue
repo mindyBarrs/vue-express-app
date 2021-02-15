@@ -14,7 +14,7 @@
         <div class="card-header">
           <h4 class="card-title">{{ beer.name }}</h4>
 
-           <BeerRating :grade="0" :maxStars="5" :hasCounter="true"/>
+           <BeerRating :grade="0" :maxStars="5" :hasCounter="true" :beerId="beer.id"/>
         </div>
         <div class="card-body">
           <p class="card-text">
