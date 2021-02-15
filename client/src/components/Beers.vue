@@ -13,6 +13,8 @@
       <div class="card border-info mb-3" style="max-width: 20rem;" v-for="beer in beers" :key="beer.id">
         <div class="card-header">
           <h4 class="card-title">{{ beer.name }}</h4>
+
+           <BeerRating :grade="0" :maxStars="5" :hasCounter="true"/>
         </div>
         <div class="card-body">
           <p class="card-text">
@@ -34,10 +36,6 @@
                {{ food_pair }}
              </li>
            </ul>
-         </div>
-
-         <div>
-           <BeerRating />
          </div>
         </div>
       </div>
@@ -82,5 +80,11 @@ export default {
 </script>
 
 <style>
-
+.card-header {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: baseline;
+}
 </style>

@@ -1,24 +1,17 @@
 <template>
   <div class="rating">
     <ul class="list">
-      <i class="fas fa-star"></i>
       <li @click="rate(star)" v-for="star in maxStars" :class="{ 'active': star <= stars }" :key="star.stars" class="star">
         <i :class="star <= stars ? 'fas fa-star' : 'far fa-star'"></i>
       </li>
     </ul>
-
-    <div v-if="hasCounter" class="info counter">
-      <span class="score-rating">{{ stars }}</span>
-      <span class="divider">/</span>
-      <span class="score-max">{{ maxStars }}</span>
-    </div>
   </div>
 </template>
 
 
 <script>
 export default {
-  name: 'BeerRating',
+  name: 'Rating',
   props: ['grade', 'maxStars', 'hasCounter'],
   data() {
     return {
@@ -37,19 +30,13 @@ export default {
 
 <style scoped lang="css">
 .rating {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
+  padding: 5px;
   color: #b7b7b7;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 6px 33px rgba(19, 18, 18, 0.09);
 }
 
 .rating .list {
   padding: 0;
-  margin: 0 20px 0 0;
+  margin: 0 20px 0 20px;
 }
 
 .rating .list:hover .star {
@@ -58,7 +45,7 @@ export default {
 
 .rating .list .star {
   display: inline-block;
-  font-size: 42px;
+  font-size: 25px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -73,22 +60,5 @@ export default {
 
 .rating .list .star.active {
   color: #ffe100;
-}
-
-.rating .info {
-  margin-top: 15px;
-  font-size: 40px;
-  text-align: center;
-  display: table;
-}
-
-.rating .info .divider {
-  margin: 0 5px;
-  font-size: 30px;
-}
-
-.rating .info .score-max {
-  font-size: 30px;
-  vertical-align: sub;
 }
 </style>
