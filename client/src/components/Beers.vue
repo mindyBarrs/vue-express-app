@@ -35,17 +35,24 @@
              </li>
            </ul>
          </div>
+
+         <div>
+           <BeerRatting />
+         </div>
         </div>
       </div>
   </div>
 </template>
 
 <script>
+import BeerRatting from './BeerRating/BeerRating.vue'
+
 const API_URL = "http://localhost:4000/";
 
 export default {
   name: 'App',
   components: {
+    BeerRatting,
   },
   data: () => ({
     error: "",
@@ -61,13 +68,15 @@ export default {
   },
   methods: {
     getBeersByName: function() {
-      console.log(this.name);
       fetch(API_URL + 'search/' + this.name )
         .then(response => response.json())
         .then(result => {
           this.beers = result;
         });
     }
+  },
+  beforeCreate: function() {
+    document.body.className = 'home';
   }
 }
 </script>
